@@ -1,6 +1,7 @@
 package junit5;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -22,4 +23,10 @@ class MathUtilsTest {
 		assertEquals(314L, actualArea, "circle area is incorect");
 	}
 
+	@Test
+	void testDiv() {
+		MathUtils mathUtils = new MathUtils();
+		Integer ip1 = 10, ip2 = 0;
+		assertThrows(ArithmeticException.class, () -> mathUtils.div(ip1, ip2), "Devide By zero exception");
+	}
 }
